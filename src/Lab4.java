@@ -54,7 +54,7 @@ public class Lab4 {
                     break;
                 }
                 case "3":
-                    for (Trainer trainer : adminRole.getListOfTrainers().returnAllRecords()) {
+                    for (Record trainer : adminRole.getListOfTrainers().returnAllRecords()) {
                         System.out.println(trainer.lineRepresentation());
                     }
                     break;
@@ -112,17 +112,17 @@ public class Lab4 {
                     break;
                 }
                 case "5":
-                    for (MemberClassRegistration registration : trainerRole.getListOfRegistrations().returnAllRecords()) {
+                    for (Record registration : trainerRole.getListOfRegistrations().returnAllRecords()) {
                         System.out.println(registration.lineRepresentation());
                     }
                     break;
                 case "6":
-                    for (Member member : trainerRole.getListOfMembers().returnAllRecords()) {
+                    for (Record member : trainerRole.getListOfMembers().returnAllRecords()) {
                         System.out.println(member.lineRepresentation());
                     }
                     break;
                 case "7":
-                    for (Class class1 : trainerRole.getListOfClasses().returnAllRecords()) {
+                    for (Record class1 : trainerRole.getListOfClasses().returnAllRecords()) {
                         System.out.println(class1.lineRepresentation());
                     }
                     break;

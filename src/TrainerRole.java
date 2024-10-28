@@ -47,13 +47,15 @@ public class TrainerRole {
             System.out.println("Class does not exist");
             return;
         }
-        if(classDatabase.getRecord(classId).getAvailableSeats() == 0) {
+        if(((Class) classDatabase.getRecord(classId)).getAvailableSeats() == 0) {
             System.out.println("Class is full");
             return;
         }
         MemberClassRegistration registration = new MemberClassRegistration(memberId, classId,"Active", registrationDate);
         registrationDatabase.insertRecord(registration);
-        classDatabase.getRecord(classId).setAvailableSeats(classDatabase.getRecord(classId).getAvailableSeats() - 1);
+        Class class1 = (Class) classDatabase.getRecord(classId);
+        class1.setAvailableSeats( class1.getAvailableSeats() - 1);
+        // classDatabase.getRecord(classId).setAvailableSeats((((Class) classDatabase.getRecord(classId)).getAvailableSeats() - 1));
     }
 
     public void cancelRegistration(String memberId, String classId) {
@@ -65,7 +67,7 @@ public class TrainerRole {
             System.out.println("Class does not exist");
             return;
         }
-        MemberClassRegistration registration = registrationDatabase.getRecord(memberId + classId);
+        MemberClassRegistration registration =  (MemberClassRegistration) registrationDatabase.getRecord(memberId + classId);
         if(registration == null) {
             System.out.println("Registration does not exist");
             return;
@@ -76,8 +78,10 @@ public class TrainerRole {
             System.out.println("Current date: " + LocalDate.now());
             return;
         }
-        registrationDatabase.getRecord(memberId + classId).setRegistrationStatus("Cancelled");
-        classDatabase.getRecord(classId).setAvailableSeats(classDatabase.getRecord(classId).getAvailableSeats() + 1);
+        ((MemberClassRegistration) registrationDatabase.getRecord(memberId + classId)).setRegistrationStatus("Cancelled");
+        Class class1 = (Class) classDatabase.getRecord(classId);
+        class1.setAvailableSeats( class1.getAvailableSeats() + 1);
+        // classDatabase.getRecord(classId).setAvailableSeats((((Class) classDatabase.getRecord(classId)).getAvailableSeats() + 1));
     }
 
     public MemberClassRegistrationDatabase getListOfRegistrations() {
