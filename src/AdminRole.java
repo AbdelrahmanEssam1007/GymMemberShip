@@ -1,11 +1,10 @@
 //this is essentially the GUI we will use
 
 public class AdminRole {
-    private static TrainerDatabase database;
+    private final TrainerDatabase database;
 
     public AdminRole() {
         database = new TrainerDatabase("Trainers.txt");
-        database.readFromFile();
     }
 
     //adds a trainer to the database

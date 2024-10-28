@@ -5,9 +5,9 @@ import java.time.LocalDate;
 
 public class TrainerRole {
 
-    private static MemberDatabase memberDatabase;
-    private static ClassDatabase classDatabase;
-    private static MemberClassRegistrationDatabase registrationDatabase;
+    private MemberDatabase memberDatabase;
+    private ClassDatabase classDatabase;
+    private MemberClassRegistrationDatabase registrationDatabase;
 
 
     public TrainerRole() {
@@ -26,10 +26,10 @@ public class TrainerRole {
     }
 
     public void addClass(String classID, String className, String trainerId, int duration, int maxParticipants) {
-        if(!TrainerDatabase.contains(trainerId)) {
-            System.out.println("Trainer does not exist");
-            return;
-        }
+//        if(!TrainerDatabase.contains(trainerId)) {
+//            System.out.println("Trainer does not exist");
+//            return;
+//        }
         Class newClass = new Class(classID, className, trainerId, duration, maxParticipants);
         classDatabase.insertRecord(newClass);
     }

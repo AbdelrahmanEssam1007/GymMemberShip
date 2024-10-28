@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class DBO {
-    private static ArrayList<Record> records;
+    private final ArrayList<Record> records;
     private final String fileName;
 
     DBO (String fileName) {
